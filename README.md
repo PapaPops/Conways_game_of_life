@@ -1,4 +1,4 @@
-# Conways_game_of_lofe
+# Conways_game_of_life
 
 
 this is one of my first c++ projects, I am still trying to learn.
