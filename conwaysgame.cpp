@@ -6,8 +6,8 @@
 #include<thread>
 
 
-#define width 40
-#define height 40
+#define width 10
+#define height 10
 
 int **grid;
 
@@ -51,7 +51,13 @@ int count_neighbors(int (&arr)[width][height],int x_width,int y_height)
     {
         for(int j = -1; j<=1;j++)
         {
-            if(arr[x_width+i][y_height+j]==1)
+            int x = x_width + i;
+            int y = y_height + j;
+
+            if((x < 0 || x > width) || (y < 0 || y > height))
+                continue;
+
+           else if(arr[x][y]==1)
                 {
                     neighbors++;
                 }
@@ -75,10 +81,10 @@ for(int i = 0; i < width; i++)
         previous_arr[i][j] = arr[i][j];
 }
 
-for(int i = 1; i<width-1;i++)
+for(int i = 0; i<width;i++)
 {
 
-    for(int j = 1; j<height-1;j++)
+    for(int j = 0; j<height;j++)
     {
         int neighbors = count_neighbors(previous_arr,i,j);
 
